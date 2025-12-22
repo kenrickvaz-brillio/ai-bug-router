@@ -120,7 +120,7 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children })
                     height: '64px'
                 }}>
                     <Space size="large" align="center" style={{ height: '100%' }}>
-                        <Badge dot color="#6366f1" offset={[2, 2]}>
+                        <Badge dot color="#6366f1" offset={[2, 16]}>
                             <Bell size={20} style={{ cursor: 'pointer', color: '#64748b' }} />
                         </Badge>
                         <div style={{

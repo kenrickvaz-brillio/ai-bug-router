@@ -31,7 +31,7 @@ import { Team, Severity } from '../types';
 import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text, Paragraph, Link } = Typography;
 
 export const ItemDetailPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -248,7 +248,7 @@ export const ItemDetailPage: React.FC = () => {
                                             {ticket.aiSuggestion!.similarIssues?.map(issue => (
                                                 <div key={issue} style={{ display: 'flex', justifyContent: 'space-between', background: '#f8fafc', padding: '8px 12px', borderRadius: '6px', fontSize: '12px', border: '1px solid #e2e8f0' }}>
                                                     <Text strong>{issue}</Text>
-                                                    <Text type="link">View</Text>
+                                                    <Link>View</Link>
                                                 </div>
                                             ))}
                                         </Space>
