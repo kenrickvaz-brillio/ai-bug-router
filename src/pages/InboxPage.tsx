@@ -9,7 +9,8 @@ import {
     Typography,
     Card,
     Button,
-    Tooltip
+    Tooltip,
+    Grid
 } from 'antd';
 import {
     Search,
@@ -26,10 +27,13 @@ import { Ticket, SourceType, Team, Severity, TicketStatus } from '../types';
 import { format } from 'date-fns';
 
 const { Title, Text } = Typography;
+const { useBreakpoint } = Grid;
 
 export const InboxPage: React.FC = () => {
     const navigate = useNavigate();
     const { tickets } = useAppContext();
+    const screens = useBreakpoint();
+    const isMobile = !screens.md;
     const [activeTab, setActiveTab] = useState<SourceType>('Email');
     const [searchText, setSearchText] = useState('');
     const [teamFilter, setTeamFilter] = useState<Team | 'All'>('All');
@@ -115,13 +119,19 @@ export const InboxPage: React.FC = () => {
 
     return (
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <div style={{ marginBottom: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+            <div style={{
+                marginBottom: '32px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: isMobile ? 'center' : 'flex-end',
+                gap: '16px'
+            }}>
                 <div>
-                    <Title level={2} style={{ margin: 0 }}>Intake Inbox</Title>
-                    <Text type="secondary">Review and route incoming support items with AI assistance.</Text>
+                    <Title level={isMobile ? 3 : 2} style={{ margin: 0 }}>Intake Inbox</Title>
+                    {!isMobile && <Text type="secondary">Review and route incoming support items with AI assistance.</Text>}
                 </div>
                 <Button type="primary" icon={<Zap size={16} />} size="large">
-                    Auto-Route Batch
+                    {!isMobile && "Auto-Route Batch"}
                 </Button>
             </div>
 
