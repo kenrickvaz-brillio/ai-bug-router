@@ -2,6 +2,8 @@
 
 AI Bug Router is an intelligent support ticket intake and routing system. It uses AI to analyze incoming support items from various sources (Emails, Logs, ServiceNow) and automatically predicts the appropriate team, severity level, and provides a confidence score for each prediction.
 
+**[Live Demo](https://ashy-forest-0b047761e.2.azurestaticapps.net)**
+
 ## 🚀 Features
 
 - **Intelligent Intake Inbox**: Centralized view for all incoming support items with advanced filtering by Team, Severity, and Status.
